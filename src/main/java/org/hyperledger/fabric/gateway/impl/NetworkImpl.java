@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 
+import org.hyperledger.fabric.gateway.Chaincode;
 import org.hyperledger.fabric.gateway.Contract;
 import org.hyperledger.fabric.gateway.GatewayRuntimeException;
 import org.hyperledger.fabric.gateway.Network;
@@ -42,7 +43,7 @@ public final class NetworkImpl implements Network, AutoCloseable {
     private final QueryHandler queryHandler;
     private final Map<Consumer<BlockEvent>, ListenerSession> blockListenerSessions = new HashMap<>();
     private final Map<CommitListener, CommitListenerSession> commitListenerSessions = new ConcurrentHashMap<>();
-
+    private final ChaincodeImpl chaincode = new ChaincodeImpl();
     NetworkImpl(final Channel channel, final GatewayImpl gateway) {
         this.channel = channel;
         this.gateway = gateway;
@@ -191,4 +192,9 @@ public final class NetworkImpl implements Network, AutoCloseable {
                 "orderedBlockSource=" + orderedBlockSource,
                 "blockListenerSessions=" + blockListenerSessions);
     }
+    @Override
+	public Chaincode getChaincodeLifecycle() {
+		
+		return chaincode;
+	}
 }

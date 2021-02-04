@@ -5,8 +5,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.hyperledger.fabric</groupId>
-    <artifactId>fabric-gateway-java</artifactId>
+    <groupId>org.hyperledger.fabric.CM</groupId>
+    <artifactId>fabric-gateway-java-CM</artifactId>
     <version>2.2.0</version>
     <packaging>jar</packaging>
 
@@ -37,6 +37,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <checkstyle.skip>true</checkstyle.skip>
+        <maven.javadoc.skip>true</maven.javadoc.skip>
+
     </properties>
 
     <repositories>

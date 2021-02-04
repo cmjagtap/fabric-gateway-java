@@ -60,6 +60,11 @@ public interface Network {
      * @return A channel.
      */
     Channel getChannel();
+    /**
+     * Get the low-level chaincodeLifecycle object associated with this network.
+     * @return A chaincodelifecycle.
+     */
+    Chaincode getChaincodeLifecycle();
 
     /**
      * Add a listener to receive block events from the network. Events are received in order and without duplication.
